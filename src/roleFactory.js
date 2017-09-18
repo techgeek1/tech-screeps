@@ -22,7 +22,12 @@ class RoleFactory {
     }
     
     static getRoleIdFromMemory(creep) {
-        return creep.memory.role;
+        if (creep.memory != null) {
+            return creep.memory.role;
+        }
+        else {
+            return -1;
+        }
     }
 }
 
