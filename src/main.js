@@ -1,11 +1,11 @@
-var CreepManager = require('manager.creeps');
+var CreepManager = require('managers/creepManager');
 
-var RoleFactory = require('role.factory');
-var Gatherer = require('role.gatherer');
+var RoleFactory = require('roles/factory');
+var Gatherer = require('roles/gatherer');
 
 module.exports.loop = function() {
-    if (Game.spawns['HelloSpawn'].canCreateCreep(Gatherer.getModules(), '') == OK) {
-        Gatherer.createCreep(Game.spawns['HelloSpawn']);
+    if (Game.spawns['Spawn1'].canCreateCreep(Gatherer.getModules(), '') == OK) {
+        Gatherer.createCreep(Game.spawns['Spawn1']);
     }
 
     CreepManager.tickManager(Game.creeps);

@@ -1,7 +1,7 @@
 var Manager = require('manager');
-var RoleFactory = require('role.factory');
+var RoleFactory = require('roles/factory');
 
-class CreepManager {
+class CreepManager extends Manager {
     static tickManager(creeps) {
         for(const baseCreep in creeps) {
             var creep = RoleFactory.createRoleState(baseCreep);

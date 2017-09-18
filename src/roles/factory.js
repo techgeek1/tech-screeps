@@ -1,3 +1,6 @@
+var RoleType = require('roleType');
+var Gatherer = require('gatherer');
+
 class RoleFactory {
     static createRoleState(creep) {
         var roleId = creep.memoty.role;
@@ -22,3 +25,5 @@ class RoleFactory {
         return creep.memory.role;
     }
 }
+
+module.exports = RoleFactory;

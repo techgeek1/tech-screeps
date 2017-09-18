@@ -1,4 +1,4 @@
-var RoleType = require('role.roleType');
+var RoleType = require('roleType');
 
 class Role {
     constructor(creep) {
