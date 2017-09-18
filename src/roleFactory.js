@@ -1,5 +1,5 @@
 var RoleType = require('roleType');
-var Gatherer = require('gatherer');
+var Gatherer = require('role.gatherer');
 
 class RoleFactory {
     static createRoleState(creep) {

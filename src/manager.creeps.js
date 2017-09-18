@@ -1,5 +1,5 @@
 var Manager = require('manager');
-var RoleFactory = require('roles/factory');
+var RoleFactory = require('roleFactory');
 
 class CreepManager extends Manager {
     static tickManager(creeps) {
