@@ -3,7 +3,7 @@ var Gatherer = require('role.gatherer');
 
 class RoleFactory {
     static createRoleState(creep) {
-        var roleId = creep.memoty.role;
+        var roleId = creep.memory.role;
         switch (roleId) {
             case RoleType.Unassigned:
                 return new Role(creep);
@@ -18,15 +18,6 @@ class RoleFactory {
             default:
                 console.log("Invalid role type!");
                 return;
-        }
-    }
-    
-    static getRoleIdFromMemory(creep) {
-        if (creep.memory != null) {
-            return creep.memory.role;
-        }
-        else {
-            return -1;
         }
     }
 }
