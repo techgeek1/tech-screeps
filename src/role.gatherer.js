@@ -36,15 +36,15 @@ class Gatherer extends Role {
     }
     
     transferToNearestStructure() {
-        var targets = creep.room.findClosestByRange(FIND_STRUCTURES, {
+        var target = self.room.findClosestByRange(FIND_STRUCTURES, {
             filter: (structure) => {
                 return (structure.structureType == STRUCTURE_EXTENSION || structure.structureType == STRUCTURE_SPAWN) &&
                     structure.energy < structure.energyCapacity;
             }
         });
 
-        if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-            creep.moveTo(target);
+        if(self.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+            self.moveTo(target);
         }
     }
     
