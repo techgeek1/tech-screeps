@@ -3,10 +3,8 @@ var RoleFactory = require('roleFactory');
 
 class CreepManager extends Manager {
     static tickManager(creeps) {
-        for(var baseCreep in creeps) {
-            console.log(baseCreep.memory);
-            
-            var creep = RoleFactory.createRoleState(baseCreep);
+        for(var creepName in creeps) {
+            var creep = RoleFactory.createRoleState(creeps[creepName]);
             if (creep.shouldBeInitialized()) {
                 creep.onInitialize();
             }
