@@ -7,13 +7,13 @@ class RoleFactory {
         switch (roleId) {
             case RoleType.Unassigned:
                 return new Role(creep);
-            case Gatherer:
+            case RoleType.Gatherer:
                 return new Gatherer(creep);
-            case Worker:
+            case RoleType.Worker:
                 return;
-            case Builder:
+            case RoleType.Builder:
                 return;
-            case Soldier:
+            case RoleType.Soldier:
                 return;
             default:
                 console.log("Invalid role type!");
@@ -21,5 +21,3 @@ class RoleFactory {
         }
     }
 }
-
-module.exports = RoleFactory;

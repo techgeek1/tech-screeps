@@ -3,25 +3,25 @@ var Role = require('role');
 
 class Gatherer extends Role {
     onTick() {
-        if (canCarryEnergy()) {
-            harvestNearestSource();
+        if (this.canCarryEnergy()) {
+            this.harvestNearestSource();
         }
         else {
-            if (hasEnergy()) {
-                transferToNearestStructure();
+            if (this.hasEnergy()) {
+                this.transferToNearestStructure();
             }
         }
     }
     
     canCarryEnergy() {
-        return self.carry.energy < self.carryCapacity;
+        return this.self.carry.energy < this.self.carryCapacity;
     }
     
     harvestNearestSource() {
-        var source = self.pos.findClosestByRange(FIND_SOURCES);
+        var source = this.self.pos.findClosestByRange(FIND_SOURCES);
         if (source != null) {
-            if (self.harvest(source) == ERR_NOT_IN_RANGE) {
-                self.moveTo(source);
+            if (this.self.harvest(source) == ERR_NOT_IN_RANGE) {
+                this.self.moveTo(source);
             }
             
             return true;
@@ -32,19 +32,19 @@ class Gatherer extends Role {
     }
     
     hasEnergy() {
-        return self.carry.energy > 0;
+        return this.self.carry.energy > 0;
     }
     
     transferToNearestStructure() {
-        var target = self.room.findClosestByRange(FIND_STRUCTURES, {
+        var target = this.self.pos.findClosestByRange(FIND_STRUCTURES, {
             filter: (structure) => {
                 return (structure.structureType == STRUCTURE_EXTENSION || structure.structureType == STRUCTURE_SPAWN) &&
                     structure.energy < structure.energyCapacity;
             }
         });
 
-        if(self.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-            self.moveTo(target);
+        if(this.self.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+            this.self.moveTo(target);
         }
     }
     
