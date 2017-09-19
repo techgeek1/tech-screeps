@@ -34,10 +34,7 @@ class Role {
     }
     
     static createCreep(spawner) {
-        var creep = spawner.createCreep(this.getModules(), '');
-        creep.memory.role = this.getRole();
-        
-        return creep;
+        return spawner.createCreep(this.getModules(), '', { role: this.getRole() });
     }
 }
 
