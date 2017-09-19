@@ -21,3 +21,5 @@ class RoleFactory {
         }
     }
 }
+
+module.exports = RoleFactory;
